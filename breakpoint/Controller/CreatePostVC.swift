@@ -24,13 +24,34 @@ class CreatePostVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let uid = (Auth.auth().currentUser?.uid)!
         self.emailLbl.text = Auth.auth().currentUser?.email
+        
+         let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png")
+        
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+                self.profileImage.image = UIImage(named: "defaultProfileImage")
+            } else {
+                self.profileImage.image = UIImage(data: data!)
+            
+            }
+        }
+        
+        DataService.instance.getImage(forUID: uid) { (feedProfile) in
+            print(feedProfile)
+        }
+        
+        // 이미지 불러오는 것은 해결
     }
-
     @IBAction func sendBtnWasPressed(_ sender: Any) {
         if textView.text != nil && textView.text != "Say something here..." {
             sendBtn.isEnabled = false
-            DataService.instance.uploadPost(withMessage: textView.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, sendComplete: { (isComplete) in
+            let uid = (Auth.auth().currentUser?.uid)!
+            
+            DataService.instance.getImage(forUID: uid) { (feedProfile) in
+            DataService.instance.uploadPost(withMessage: self.textView.text, forUID: uid, withGroupKey: nil, profileImage: feedProfile, sendComplete: { (isComplete) in // uploadPost시 이미지까지 싹다 해야?, 아니면 계정은 연결되어있으니 상관 없나? -> 이미 feedProfile이 있다!
                 if isComplete {
                     self.sendBtn.isEnabled = true
                     self.dismiss(animated: true, completion: nil)
@@ -39,6 +60,10 @@ class CreatePostVC: UIViewController {
                     print("There was an error!")
                 }
             })
+                
+            
+            
+        }
         }
     }
     

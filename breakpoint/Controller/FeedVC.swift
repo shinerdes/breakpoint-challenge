@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var messageArray = [Message]()
+    var messageArray = [Message]() // Feed araay
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +42,33 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell") as? FeedCell else { return UITableViewCell() }
-        let image = UIImage(named: "defaultProfileImage")
+        
         let message = messageArray[indexPath.row]
         
         DataService.instance.getUsername(forUID: message.senderId) { (returnedUsername) in
-            cell.configureCell(profileImage: image!, email: returnedUsername, content: message.content)
+            DataService.instance.getImage(forUID: message.senderId, handler: { (returnedProfile) in
+                
+               
+     
+                let storageRef = Storage.storage().reference().child("\(returnedProfile)") // 사진이나 아이콘 자체는 계속 저장되어있음
+                
+                // returnedProfile = image/tt@tt.com_camera.png
+                // 여기서 이미지를 불러와서 때려 박아줘야 함
+                
+                storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        
+                        print("됨")
+                        cell.configureCell(profileImage: UIImage(data: data!)!, email: returnedUsername, content: message.content)
+                    }
+                }
+                
+              
+             
+            })
+            
         }
         return cell
     }

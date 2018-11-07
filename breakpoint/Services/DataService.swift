@@ -9,7 +9,12 @@
 import Foundation
 import Firebase
 
+
+
 let DB_BASE = Database.database().reference()
+
+
+
 
 class DataService {
     static let instance = DataService()
@@ -34,12 +39,37 @@ class DataService {
     var REF_FEED: DatabaseReference {
         return _REF_FEED
     }
+    /////
+    //func cameraUploadImage
+    func cameraUploadImage(forUID uid: String, cameraImage: String) {
+        REF_USERS.child(uid).child("profile").setValue(cameraImage)
+    }
     
-    func createDBUser(uid: String, userData: Dictionary<String, Any>) {
+    
+    func createDBUser(uid: String, userData: Dictionary<String, Any>) { // 유저 DB 생성. user - child(uid) - childData(userdata). - image는 따로
+        
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
+    // getProfileImageFileString
+    func getImage(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userSnapshot {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "profile").value as! String)
+                }
+            }
+        }
+    }
+    
+   
+    //profileImageSet
+    func setAvatarProfile(forUID uid: String, avatarName: String){
+        REF_USERS.child(uid).child("profile").setValue(avatarName)
+    }
+    
+    func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) { //
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
@@ -50,12 +80,12 @@ class DataService {
         }
     }
     
-    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
+    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, profileImage image: String, sendComplete: @escaping (_ status: Bool) -> ()) {
         if groupKey != nil {
-            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid, "profile": image])
             sendComplete(true)
         } else {
-            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid, "profile": image])
             sendComplete(true)
         }
     }
@@ -68,7 +98,8 @@ class DataService {
             for message in feedMessageSnapshot {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                let message = Message(content: content, senderId: senderId)
+                let messageImage = message.childSnapshot(forPath: "profile").value as! String
+                let message = Message(content: content, senderId: senderId, messageImage: messageImage)
                 messageArray.append(message)
             }
             
@@ -83,7 +114,8 @@ class DataService {
             for groupMessage in groupMessageSnapshot {
                 let content = groupMessage.childSnapshot(forPath: "content").value as! String
                 let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
-                let groupMessage = Message(content: content, senderId: senderId)
+                let messageImage = groupMessage.childSnapshot(forPath: "profile").value as! String
+                let groupMessage = Message(content: content, senderId: senderId, messageImage: messageImage)
                 groupMessageArray.append(groupMessage)
             }
             handler(groupMessageArray)

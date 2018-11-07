@@ -15,14 +15,40 @@ class MeVC: UIViewController {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.profileImage.image = UIImage(named: "defaultProfileImage")
+
+        
         self.emailLbl.text = Auth.auth().currentUser?.email
+
+        let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png") // 사진이나 아이콘 자체는 계속 저장되어있음
+
+        
+    
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+            } else {
+                self.profileImage.image = UIImage(data: data!)
+                print("불러옴")
+
+            }
+        }
+        
+        
     }
+        
+    
+
+    
 
     @IBAction func signOutBtnWasPressed(_ sender: Any) {
         let logoutPopup = UIAlertController(title: "Logout?", message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
@@ -38,6 +64,15 @@ class MeVC: UIViewController {
         logoutPopup.addAction(logoutAction)
         present(logoutPopup, animated: true, completion: nil)
     }
+    
+    @IBAction func profilePhotoChangeBtn(_ sender: Any) { //image를 추가하는 버튼
+       // guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupFeedVC") as? GroupFeedVC else { return }
+       
+        
+    }
+    
+    
+    
 }
 
 

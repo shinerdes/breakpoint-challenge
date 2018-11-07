@@ -18,8 +18,8 @@ class CreateGroupsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBtn: UIButton!
     
-    var emailArray = [String]()
-    var chosenUserArray = [String]()
+    var emailArray = [String]() // 이메일
+    var chosenUserArray = [String]() // 선택한 유저들의 목록을 Array
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,16 +79,43 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
-        let profileImage = UIImage(named: "defaultProfileImage")
         
-        if chosenUserArray.contains(emailArray[indexPath.row]) {
-            cell.configureCell(profileImage: profileImage!, email: emailArray[indexPath.row], isSelected: true)
-        } else {
-            cell.configureCell(profileImage: profileImage!, email: emailArray[indexPath.row], isSelected: false)
+        let storageRef = Storage.storage().reference().child("images/\((emailArray[indexPath.row]))_capture.png")
+        var profileImage = UIImage(named: "defaultProfileImage")
+        
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+            } else {
+                profileImage = UIImage(data: data!)
+                print("불러옴")
+                
+                if self.chosenUserArray.contains(self.emailArray[indexPath.row]) {
+                    cell.configureCell(profileImage: profileImage!, email: self.emailArray[indexPath.row], isSelected: true)
+                } else {
+                    cell.configureCell(profileImage: profileImage!, email: self.emailArray[indexPath.row], isSelected: false)
+                }
+            }
         }
+
+        print(emailArray[indexPath.row]) // 검색 때린 부분의 이메일 파트
         
+        
+        // indexpath.row = 이메일 주소들
+        // 이메일 받은걸 -> 추척 -> ID -> imagefile -> storage
+            // 
+            //let storageRef = Storage.storage().reference().child("\(returnedProfile)")
+        
+            //let profileImage = UIImage(named: "dark1") // tableview에 이미지 뿌리는
+        
+        
+            
+    
         return cell
     }
+    
+   
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
@@ -105,6 +132,11 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
                 doneBtn.isHidden = true
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
 

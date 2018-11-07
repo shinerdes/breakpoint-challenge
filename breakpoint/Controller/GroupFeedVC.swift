@@ -30,6 +30,8 @@ class GroupFeedVC: UIViewController {
         sendBtnView.bindToKeyboard()
         tableView.delegate = self
         tableView.dataSource = self
+        messageTextField.delegate = self
+        print(groupMessages.count)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +57,14 @@ class GroupFeedVC: UIViewController {
         if messageTextField.text != "" {
             messageTextField.isEnabled = false
             sendBtn.isEnabled = false
-            DataService.instance.uploadPost(withMessage: messageTextField.text!, forUID: Auth.auth().currentUser!.uid, withGroupKey: group?.key, sendComplete: { (complete) in
+            
+            var profileImage = ""
+            let uid = (Auth.auth().currentUser?.uid)!
+            
+            DataService.instance.getImage(forUID: uid) { (feedProfile) in
+               
+            // 일반 FEED로 감
+            DataService.instance.uploadPost(withMessage: self.messageTextField.text!, forUID: Auth.auth().currentUser!.uid,  withGroupKey: nil, profileImage: feedProfile, sendComplete: { (complete) in
                 if complete {
                     self.messageTextField.text = ""
                     self.messageTextField.isEnabled = true
@@ -63,20 +72,27 @@ class GroupFeedVC: UIViewController {
                 }
             })
         }
+        }
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
         dismissDetail()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
 
-extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
+extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groupMessages.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

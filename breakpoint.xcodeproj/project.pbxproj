@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		197F1D19216F6FEF0023777C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 197F1D18216F6FEF0023777C /* GoogleService-Info.plist */; };
+		1960F4EF218060FE00561900 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1960F4EE218060FD00561900 /* GoogleService-Info.plist */; };
+		1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960F4F1218078D700561900 /* CameraCaptureVC.swift */; };
+		197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1A2171B6470023777C /* AvatarPickerVC.swift */; };
+		197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1C2171BEF80023777C /* AvatarCell.swift */; };
 		7198DB871F27C53B0088BE5A /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB861F27C53B0088BE5A /* GroupCell.swift */; };
 		7198DB891F27CCAD0088BE5A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB881F27CCAD0088BE5A /* Group.swift */; };
 		7198DB8B1F27D3BF0088BE5A /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */; };
@@ -37,7 +40,10 @@
 
 /* Begin PBXFileReference section */
 		0B9E38C08E35A3D9610F585D /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		197F1D18216F6FEF0023777C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1960F4EE218060FD00561900 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1960F4F1218078D700561900 /* CameraCaptureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureVC.swift; sourceTree = "<group>"; };
+		197F1D1A2171B6470023777C /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
+		197F1D1C2171BEF80023777C /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		659804F2063C9B52666C8A28 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		7198DB861F27C53B0088BE5A /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7198DB881F27CCAD0088BE5A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -119,7 +125,7 @@
 				71B61A0E1F23CEAA00FA8925 /* Assets.xcassets */,
 				71B61A101F23CEAA00FA8925 /* LaunchScreen.storyboard */,
 				71B61A131F23CEAA00FA8925 /* Info.plist */,
-				197F1D18216F6FEF0023777C /* GoogleService-Info.plist */,
+				1960F4EE218060FD00561900 /* GoogleService-Info.plist */,
 			);
 			path = breakpoint;
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 				71B61A2E1F2674AD00FA8925 /* CreatePostVC.swift */,
 				71B61A361F269A5000FA8925 /* CreateGroupsVC.swift */,
 				7198DB8C1F27D4240088BE5A /* GroupFeedVC.swift */,
+				197F1D1A2171B6470023777C /* AvatarPickerVC.swift */,
+				1960F4F1218078D700561900 /* CameraCaptureVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				71ED40631F279B5800731C19 /* UserCell.swift */,
 				7198DB861F27C53B0088BE5A /* GroupCell.swift */,
 				7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */,
+				197F1D1C2171BEF80023777C /* AvatarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,7 +209,6 @@
 				71B619FF1F23CEAA00FA8925 /* Frameworks */,
 				71B61A001F23CEAA00FA8925 /* Resources */,
 				6EEE33556297C3C4301D8BBF /* [CP] Embed Pods Frameworks */,
-				56CDC313A60C68C39CCDA1FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B61A121F23CEAA00FA8925 /* LaunchScreen.storyboard in Resources */,
-				197F1D19216F6FEF0023777C /* GoogleService-Info.plist in Resources */,
+				1960F4EF218060FE00561900 /* GoogleService-Info.plist in Resources */,
 				71B61A0F1F23CEAA00FA8925 /* Assets.xcassets in Resources */,
 				71B61A0D1F23CEAA00FA8925 /* Main.storyboard in Resources */,
 			);
@@ -259,30 +267,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		56CDC313A60C68C39CCDA1FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6EEE33556297C3C4301D8BBF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -295,13 +297,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-breakpoint-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -316,6 +321,7 @@
 				71B61A2D1F26701B00FA8925 /* MeVC.swift in Sources */,
 				7198DB871F27C53B0088BE5A /* GroupCell.swift in Sources */,
 				71B61A231F26584800FA8925 /* AuthVC.swift in Sources */,
+				197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */,
 				7198DB8F1F27ED5A0088BE5A /* UIViewControllerExt.swift in Sources */,
 				71B61A0A1F23CEAA00FA8925 /* GroupsVC.swift in Sources */,
 				7198DB8D1F27D4240088BE5A /* GroupFeedVC.swift in Sources */,
@@ -324,6 +330,7 @@
 				71B61A2B1F265D5500FA8925 /* AuthService.swift in Sources */,
 				71B61A371F269A5000FA8925 /* CreateGroupsVC.swift in Sources */,
 				7198DB891F27CCAD0088BE5A /* Group.swift in Sources */,
+				197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */,
 				71ED40641F279B5800731C19 /* UserCell.swift in Sources */,
 				71B61A061F23CEAA00FA8925 /* AppDelegate.swift in Sources */,
 				71B61A291F265BB500FA8925 /* ShadowView.swift in Sources */,
@@ -331,6 +338,7 @@
 				71B61A081F23CEAA00FA8925 /* FeedVC.swift in Sources */,
 				71B61A271F26591800FA8925 /* InsetTextField.swift in Sources */,
 				71B61A211F23DE8800FA8925 /* DataService.swift in Sources */,
+				1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */,
 				71B61A351F26893000FA8925 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
