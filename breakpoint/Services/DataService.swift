@@ -83,7 +83,7 @@ class DataService {
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, profileImage image: String, sendComplete: @escaping (_ status: Bool) -> ()) {
         if groupKey != nil {
             REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid, "profile": image])
-            sendComplete(true)
+            sendComplete(true) // group
         } else {
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid, "profile": image])
             sendComplete(true)

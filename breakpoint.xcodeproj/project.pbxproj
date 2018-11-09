@@ -11,6 +11,7 @@
 		1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960F4F1218078D700561900 /* CameraCaptureVC.swift */; };
 		197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1A2171B6470023777C /* AvatarPickerVC.swift */; };
 		197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1C2171BEF80023777C /* AvatarCell.swift */; };
+		19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */; };
 		7198DB871F27C53B0088BE5A /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB861F27C53B0088BE5A /* GroupCell.swift */; };
 		7198DB891F27CCAD0088BE5A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB881F27CCAD0088BE5A /* Group.swift */; };
 		7198DB8B1F27D3BF0088BE5A /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */; };
@@ -44,6 +45,7 @@
 		1960F4F1218078D700561900 /* CameraCaptureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureVC.swift; sourceTree = "<group>"; };
 		197F1D1A2171B6470023777C /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		197F1D1C2171BEF80023777C /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupPostVC.swift; sourceTree = "<group>"; };
 		659804F2063C9B52666C8A28 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		7198DB861F27C53B0088BE5A /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7198DB881F27CCAD0088BE5A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				7198DB8C1F27D4240088BE5A /* GroupFeedVC.swift */,
 				197F1D1A2171B6470023777C /* AvatarPickerVC.swift */,
 				1960F4F1218078D700561900 /* CameraCaptureVC.swift */,
+				19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				7198DB8D1F27D4240088BE5A /* GroupFeedVC.swift in Sources */,
 				7198DB8B1F27D3BF0088BE5A /* GroupFeedCell.swift in Sources */,
 				71B61A251F26587E00FA8925 /* LoginVC.swift in Sources */,
+				19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */,
 				71B61A2B1F265D5500FA8925 /* AuthService.swift in Sources */,
 				71B61A371F269A5000FA8925 /* CreateGroupsVC.swift in Sources */,
 				7198DB891F27CCAD0088BE5A /* Group.swift in Sources */,
