@@ -38,7 +38,6 @@ class MeVC: UIViewController {
                 print(error)
             } else {
                 self.profileImage.image = UIImage(data: data!)
-                print("불러옴")
 
             }
         }

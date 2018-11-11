@@ -30,6 +30,7 @@ class GroupFeedVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         GroupKey = (group?.key)!
+ 
     }
     
 
@@ -60,13 +61,9 @@ class GroupFeedVC: UIViewController {
         dismissDetail()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
 }
 
-extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -79,8 +76,7 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupFeedCell", for: indexPath) as? GroupFeedCell else { return UITableViewCell() }
         let message = groupMessages[indexPath.row]
-        
-        // 이미지 로드
+    
         
         DataService.instance.getUsername(forUID: message.senderId) { (email) in
             
@@ -101,6 +97,55 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDe
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+            
+            let ref = Database.database().reference().child("groups").child(GroupKey).child("messages") // 여기까지는 1차적으로 뽑아냄
+        
+            
+            ref.queryOrdered(byChild: "content").queryEqual(toValue: self.groupMessages[indexPath.row].content).observeSingleEvent(of: .value, with: { (snapshot) in
+                print(self.groupMessages[indexPath.row].content)
+                for child in snapshot.children {
+                    let snapKey = (child as AnyObject).key as String
+                    print(snapKey) // snap 키를 불러옴
+                
+                    ref.child(snapKey).removeValue(completionBlock: { (error, refer) in
+                        if error != nil {
+                            print(error)
+                        } else {
+                            print(refer)
+                            print("Child Removed Correctly")
+                            
+                        
+                            DispatchQueue.main.async{
+                                
+                            }
+                        }
+                    })
+                }
+            })
+            
+          
+            
+        }
+        
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        return [deleteAction]
+        
+    }
+    
+    // 미완성
+    
 }
 
 

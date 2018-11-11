@@ -107,10 +107,7 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
             //let storageRef = Storage.storage().reference().child("\(returnedProfile)")
         
             //let profileImage = UIImage(named: "dark1") // tableview에 이미지 뿌리는
-        
-        
-            
-    
+ 
         return cell
     }
     
