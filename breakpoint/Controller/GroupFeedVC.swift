@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationBannerSwift
 
 var GroupKey = ""
 
@@ -111,7 +112,10 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             
             let ref = Database.database().reference().child("groups").child(GroupKey).child("messages") // 여기까지는 1차적으로 뽑아냄
-        
+            var emailForSubtitle = ""
+            DataService.instance.getUsername(forUID: self.groupMessages[indexPath.row].senderId, handler: { (returnedemail) in
+                emailForSubtitle = returnedemail
+            })
             
             ref.queryOrdered(byChild: "content").queryEqual(toValue: self.groupMessages[indexPath.row].content).observeSingleEvent(of: .value, with: { (snapshot) in
                 print(self.groupMessages[indexPath.row].content)
@@ -125,6 +129,11 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
                         } else {
                             print(refer)
                             print("Child Removed Correctly")
+                            
+                            let groupPostDeleteBanner = NotificationBanner(title: "Suceess! Feed Is Delete!",
+                                                                      subtitle: "\(emailForSubtitle)",
+                                style: .danger) // 지우는 피드의 해당하는 이메일을 subtitle로
+                            groupPostDeleteBanner.show()
                             
                         
                             DispatchQueue.main.async{

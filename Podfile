@@ -10,5 +10,7 @@ target 'breakpoint' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'NotificationBannerSwift', '1.6.3'
+  pod 'MarqueeLabel/Swift', '3.1.6'
 
 end

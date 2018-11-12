@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationBannerSwift
 
 class CreateGroupPostVC: UIViewController {
     
@@ -61,6 +62,10 @@ class CreateGroupPostVC: UIViewController {
                     if isComplete {
                         self.sendBtn.isEnabled = true
                         self.dismiss(animated: true, completion: nil)
+                        let newGroupPostCreatebanner = NotificationBanner(title: "Suceess! New Group Feed Created!",
+                                                                     subtitle: "\((Auth.auth().currentUser?.email)!)",
+                            style: .success)
+                        newGroupPostCreatebanner.show()
                     } else {
                         self.sendBtn.isEnabled = true
                         print("There was an error!")

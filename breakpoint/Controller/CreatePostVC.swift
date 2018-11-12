@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationBannerSwift
 
 class CreatePostVC: UIViewController {
     
@@ -27,7 +28,7 @@ class CreatePostVC: UIViewController {
         let uid = (Auth.auth().currentUser?.uid)!
         self.emailLbl.text = Auth.auth().currentUser?.email
         
-         let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png")
+        let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png")
         
         storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
@@ -51,6 +52,14 @@ class CreatePostVC: UIViewController {
                 if isComplete {
                     self.sendBtn.isEnabled = true
                     self.dismiss(animated: true, completion: nil)
+                    
+                    let newPostCreatebanner = NotificationBanner(title: "Suceess! New Feed Created!",
+                                                    subtitle: "\((Auth.auth().currentUser?.email)!)",
+                                                    style: .success)
+                    newPostCreatebanner.show()
+
+                    // 알림이 떠 줘야 함
+                    
                 } else {
                     self.sendBtn.isEnabled = true
                     print("There was an error!")

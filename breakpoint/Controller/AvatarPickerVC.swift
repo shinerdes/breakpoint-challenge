@@ -74,7 +74,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
             }
             
-            DataService.instance.setAvatarProfile(forUID: uid, avatarName: "dark\(indexPath.item)")
+            DataService.instance.setAvatarProfile(forUID: uid, avatarName: "images/\((Auth.auth().currentUser?.email)!)_capture.png") // 이것도 스토리지에서 빼오는 걸로
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -128,13 +128,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return copy!
     }
-    
-    // button add
-    // button -> camera on -> camera picture -> pic data -> realtime database
-    //
-    
-    // camera view 기능
-    // 전면 가메라 + 후면카메라 둘다 사용 가능.
-    
+
+    // 아바타 픽업시 storage 방식으로 저장
 
 }

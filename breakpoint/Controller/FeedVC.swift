@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationBannerSwift
 
 class FeedVC: UIViewController {
     
@@ -88,13 +89,18 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            
+            var emailForSubtitle = ""
             let ref = Database.database().reference().child("feed")
+           
+            DataService.instance.getUsername(forUID: self.messageArray[indexPath.row].senderId, handler: { (returnedemail) in
+                emailForSubtitle = returnedemail
+            })
             
             ref.queryOrdered(byChild: "content").queryEqual(toValue: self.messageArray[indexPath.row].content).observeSingleEvent(of: .value, with: { (snapshot) in
                 for child in snapshot.children {
                     let snapKey = (child as AnyObject).key as String
                     print(snapKey) // snap 키를 불러옴
+                    "" // 단순하게 이메일만 뽑아서 서브타이블로 집어넣기
                     
                     ref.child(snapKey).removeValue(completionBlock: { (error, refer) in
                         if error != nil {
@@ -102,9 +108,15 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
                         } else {
                             print(refer)
                             print("Child Removed Correctly")
+                            
                             self.messageArray.remove(at: indexPath.row)
                             self.tableView.deleteRows(at: [indexPath], with: .fade)
                             self.tableView.reloadData()
+                            
+                            let postDeleteBanner = NotificationBanner(title: "Suceess! Feed Is Delete!",
+                                                                         subtitle: "\(emailForSubtitle)",
+                                style: .danger) // 지우는 피드의 해당하는 이메일을 subtitle로
+                            postDeleteBanner.show()
                             
 
                             DispatchQueue.main.async{

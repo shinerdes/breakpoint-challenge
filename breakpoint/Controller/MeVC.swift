@@ -28,19 +28,20 @@ class MeVC: UIViewController {
 
         
         self.emailLbl.text = Auth.auth().currentUser?.email
-
-        let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png") // 사진이나 아이콘 자체는 계속 저장되어있음
-
         
-    
-        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                print(error)
+        let storageRef = Storage.storage().reference().child("images/\((Auth.auth().currentUser?.email)!)_capture.png") // 사진이나 아이콘 자체는 계속 저장되어있음
+        
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print(error) // 처음에 불러올때 시간차가 생기니깐 다시 해본다?
+                    
             } else {
                 self.profileImage.image = UIImage(data: data!)
+                
 
             }
         }
+        
         
         
     }
