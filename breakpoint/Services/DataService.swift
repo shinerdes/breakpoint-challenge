@@ -39,8 +39,9 @@ class DataService {
     var REF_FEED: DatabaseReference {
         return _REF_FEED
     }
-    /////
-    //func cameraUploadImage
+   
+    // user정보 불어오기
+
     func cameraUploadImage(forUID uid: String, cameraImage: String) {
         REF_USERS.child(uid).child("profile").setValue(cameraImage)
     }
@@ -119,6 +120,24 @@ class DataService {
                 groupMessageArray.append(groupMessage)
             }
             handler(groupMessageArray)
+        }
+    }
+    
+    func getAllUsers(handler: @escaping (_ users: [Users]) -> ()) {
+        var usersArray = [Users]()
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as?
+                [DataSnapshot] else { return }
+            
+            for allUsers in userSnapshot {
+                let email = allUsers.childSnapshot(forPath: "email").value as! String
+                let profile = allUsers.childSnapshot(forPath: "profile").value as! String
+                let provider = allUsers.childSnapshot(forPath: "provider").value as! String
+                let allUsers = Users(email: email, profile: profile, provider: provider)
+                usersArray.append(allUsers)
+            }
+            
+            handler(usersArray)
         }
     }
     

@@ -12,6 +12,9 @@
 		197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1A2171B6470023777C /* AvatarPickerVC.swift */; };
 		197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1C2171BEF80023777C /* AvatarCell.swift */; };
 		19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */; };
+		19EAC122219ABC4B003E0FFD /* AdminMenuUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */; };
+		19EAC126219AF06F003E0FFD /* AdminUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC125219AF06F003E0FFD /* AdminUserCell.swift */; };
+		19EAC128219C0F53003E0FFD /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC127219C0F53003E0FFD /* Users.swift */; };
 		7198DB871F27C53B0088BE5A /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB861F27C53B0088BE5A /* GroupCell.swift */; };
 		7198DB891F27CCAD0088BE5A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB881F27CCAD0088BE5A /* Group.swift */; };
 		7198DB8B1F27D3BF0088BE5A /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */; };
@@ -46,6 +49,9 @@
 		197F1D1A2171B6470023777C /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		197F1D1C2171BEF80023777C /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupPostVC.swift; sourceTree = "<group>"; };
+		19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuUsersVC.swift; sourceTree = "<group>"; };
+		19EAC125219AF06F003E0FFD /* AdminUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserCell.swift; sourceTree = "<group>"; };
+		19EAC127219C0F53003E0FFD /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		659804F2063C9B52666C8A28 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		7198DB861F27C53B0088BE5A /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		7198DB881F27CCAD0088BE5A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				197F1D1A2171B6470023777C /* AvatarPickerVC.swift */,
 				1960F4F1218078D700561900 /* CameraCaptureVC.swift */,
 				19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */,
+				19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 				7198DB861F27C53B0088BE5A /* GroupCell.swift */,
 				7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */,
 				197F1D1C2171BEF80023777C /* AvatarCell.swift */,
+				19EAC125219AF06F003E0FFD /* AdminUserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +177,7 @@
 			children = (
 				71B61A341F26893000FA8925 /* Message.swift */,
 				7198DB881F27CCAD0088BE5A /* Group.swift */,
+				19EAC127219C0F53003E0FFD /* Users.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,13 +348,16 @@
 				19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */,
 				71B61A2B1F265D5500FA8925 /* AuthService.swift in Sources */,
 				71B61A371F269A5000FA8925 /* CreateGroupsVC.swift in Sources */,
+				19EAC126219AF06F003E0FFD /* AdminUserCell.swift in Sources */,
 				7198DB891F27CCAD0088BE5A /* Group.swift in Sources */,
 				197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */,
 				71ED40641F279B5800731C19 /* UserCell.swift in Sources */,
 				71B61A061F23CEAA00FA8925 /* AppDelegate.swift in Sources */,
 				71B61A291F265BB500FA8925 /* ShadowView.swift in Sources */,
+				19EAC128219C0F53003E0FFD /* Users.swift in Sources */,
 				71B61A2F1F2674AD00FA8925 /* CreatePostVC.swift in Sources */,
 				71B61A081F23CEAA00FA8925 /* FeedVC.swift in Sources */,
+				19EAC122219ABC4B003E0FFD /* AdminMenuUsersVC.swift in Sources */,
 				71B61A271F26591800FA8925 /* InsetTextField.swift in Sources */,
 				71B61A211F23DE8800FA8925 /* DataService.swift in Sources */,
 				1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */,
