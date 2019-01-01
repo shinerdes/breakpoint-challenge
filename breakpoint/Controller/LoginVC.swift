@@ -33,6 +33,7 @@ class LoginVC: UIViewController {
                     loginBanner.show()
                 } else {
                     print(String(describing: loginError?.localizedDescription))
+                    // 계정이 존재 하지 않음
                 }
                 
                 AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
@@ -82,13 +83,21 @@ class LoginVC: UIViewController {
                             
                             
                             // dismiss를 맨 마지막에 배치, 신규 생성은 무조건적으로 해줘야 함
-                            
-                            
-                            
-                            
+
                         })
                     } else {
                         print(String(describing: registrationError?.localizedDescription))
+                        let errDesc = (registrationError?.localizedDescription)!
+                        
+                        let registErrorAlert = UIAlertController(title: errDesc, message: "", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                            (action : UIAlertAction!) -> Void in })
+                        
+                        registErrorAlert.addAction(okAction)
+                        
+                        self.present(registErrorAlert, animated: true, completion: nil) // 알람이 안뜸
+                        
                     }
                 })
             })

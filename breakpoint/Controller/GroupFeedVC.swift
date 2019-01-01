@@ -31,7 +31,7 @@ class GroupFeedVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         GroupKey = (group?.key)!
- 
+
     }
     
 
