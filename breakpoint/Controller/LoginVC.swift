@@ -28,7 +28,7 @@ class LoginVC: UIViewController {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                     let loginBanner = NotificationBanner(title: "Successfully login!",
-                                                            subtitle: "\(self.emailField.text!)",
+                                                        subtitle: "\(self.emailField.text!)",
                         style: .success) // 지우는 피드의 해당하는 이메일을 subtitle로
                     loginBanner.show()
                 } else {
@@ -123,6 +123,47 @@ class LoginVC: UIViewController {
         
         return copy!
     }
+    
+    @IBAction func adminBtnWasPressed(_ sender: Any) {
+        
+        let adminAlertController = UIAlertController(title: "관리자 비밀번호 입력", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        adminAlertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Your Password"
+        }
+        
+        let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { alert -> Void in
+            
+            let passwordField = adminAlertController.textFields![0] as UITextField
+            print("\(passwordField.text!)")
+            
+            if (passwordField.text!) == "1" {
+                // enter admind menu
+                let AdminMenuUsersVC = self.storyboard?.instantiateViewController(withIdentifier: "AdminMenuUsersVC")
+                self.present(AdminMenuUsersVC!, animated: true, completion: nil)
+               
+            } else {
+                let passwordErrorAlert = UIAlertController(title: "비밀번호 불일치", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                    (action : UIAlertAction!) -> Void in })
+                
+                passwordErrorAlert.addAction(okAction)
+                
+                self.present(passwordErrorAlert, animated: true, completion: nil) // 알람이 안뜸
+            }
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {
+            (action : UIAlertAction!) -> Void in })
+        
+        adminAlertController.addAction(okAction)
+        adminAlertController.addAction(cancelAction)
+        
+        self.present(adminAlertController, animated: true, completion: nil)
+        
+    }
+    
 }
 
 extension LoginVC: UITextFieldDelegate { }

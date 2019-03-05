@@ -62,6 +62,7 @@ class GroupFeedVC: UIViewController {
         dismissDetail()
     }
     
+    
 }
 
 extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {

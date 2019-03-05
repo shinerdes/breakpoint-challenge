@@ -52,6 +52,8 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    
+    
     // getProfileImageFileString
     func getImage(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
@@ -64,6 +66,87 @@ class DataService {
         }
     }
     
+    func getGroup(forUID uid: String, handler: @escaping (_ getGroupArray: [DetailGroupMessage]) -> ()) {
+        var getGroupArray = [DetailGroupMessage]() // 수정해야함
+        REF_GROUPS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            print("내부 돈다") // 일단 여기는 한번 돔
+            for group in userSnapshot {
+                //let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                
+                let title = group.childSnapshot(forPath: "title").value as! String // 1. 그룹 타이틀 뽑아오기
+                
+                print("타이틀 돈다") // 방이 3개 있으니깐 3번 도는게 맞음
+                //let group = Group(title: title, description: description, key: group.key, members: memberArray, memberCount: memberArray.count)
+                
+                // 여기서 타이틀 기준으로 그룹 당 id 값을 string에 집어 넣어야?
+                Database.database().reference().child("groups").queryOrdered(byChild: "title").queryEqual(toValue: title).observeSingleEvent(of: .value, with: { (snapshot) in
+                    //
+                    for forgroupuid in snapshot.children {
+                        
+                        print("forgroupuid 돈다")
+                        let snapKey = (forgroupuid as AnyObject).key as String
+                        print("그룹 내에 있는 모든 그룹방의 uid \(snapKey)") // uid
+                        //여기서 다시 접근
+                        Database.database().reference().child("groups").child(snapKey).child("messages").queryOrdered(byChild: "senderId").queryEqual(toValue: uid).observeSingleEvent(of: .value, with: { (snap2) in       // 각 그룹에 있는 방 -> message방 -> senderId가 같은곳으로 돈다
+                            // ?? 그럼 의미가 딱히 없는뎁쇼
+                            
+                            guard let snap2 = snap2.children.allObjects as? [DataSnapshot] else { return }
+                            for finalsnap in snap2 {
+                                var count = 0
+                                print("finalsnap 돈다")
+                                print("\(snap2.count)")
+//                                let content = finalsnap.childSnapshot(forPath: "content").value as! String// ??? null이 왜 뜰까
+//                                let profile = finalsnap.childSnapshot(forPath: "profile").value as! String
+//                                let senderId = finalsnap.childSnapshot(forPath: "senderId").value as! String
+//                                var email = ""
+                                // senderid로 email 추척해야함.. ㄴㄴ 그냥 profile로 추적해도 상관없을듯
+                                let senderId = finalsnap.childSnapshot(forPath: "senderId").value as! String
+
+                                
+                                    DataService.instance.getUsername(forUID: senderId, handler: { (returnemail) in
+                                        let content = finalsnap.childSnapshot(forPath: "content").value as! String// ??? null이 왜 뜰까
+                                        let profile = finalsnap.childSnapshot(forPath: "profile").value as! String
+                                       // let senderId = finalsnap.childSnapshot(forPath: "senderId").value as! String
+                                        var email = returnemail
+                                        print("--------")
+                                        print(content)
+                                        print(profile)
+                                        print(senderId)
+                                        print(email)
+                                        print("--------")
+                                        let finalsnap = DetailGroupMessage(content: content, groupTitle: title, email: email, messageImage: profile, senderId: senderId)
+                                        getGroupArray.append(finalsnap)
+                                      
+                                        
+                                        
+                                        handler(getGroupArray)
+                                       
+                                        
+                                        // 여기에 놓으면 한번에 3번 다 돔
+                                    })
+                                //handler(getGroupArray)
+                               //handler(getGroupArray)
+                                
+
+                                
+                            }// for 기점
+                            
+                         // handler(getGroupArray)
+                        })
+               
+                    }
+                })
+                
+                
+            }
+           
+
+        }
+        
+
+    }
+ 
    
     //profileImageSet
     func setAvatarProfile(forUID uid: String, avatarName: String){

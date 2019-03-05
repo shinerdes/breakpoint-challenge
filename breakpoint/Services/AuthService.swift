@@ -12,10 +12,6 @@ import Firebase
 class AuthService { // 인증서비스
     static let instance = AuthService()
     
-    
-    
-    
-    
     func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             guard let user = authResult?.user else {

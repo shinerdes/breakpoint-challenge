@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192CCC13221558E400B9AD24 /* AdminDetailFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CCC12221558E400B9AD24 /* AdminDetailFeedVC.swift */; };
+		192CCC152215592500B9AD24 /* AdminDetailGroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CCC142215592500B9AD24 /* AdminDetailGroupFeedVC.swift */; };
+		192CCC192216CED800B9AD24 /* DetailFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CCC182216CED800B9AD24 /* DetailFeedCell.swift */; };
+		1931E025221028BE001FF5CC /* AdminDetailUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1931E024221028BE001FF5CC /* AdminDetailUserVC.swift */; };
 		1960F4EF218060FE00561900 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1960F4EE218060FD00561900 /* GoogleService-Info.plist */; };
 		1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960F4F1218078D700561900 /* CameraCaptureVC.swift */; };
+		19774BAC221986DF0001420C /* DetailGroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19774BAB221986DF0001420C /* DetailGroupFeedCell.swift */; };
+		19774BAE22215C2C0001420C /* DetailGroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19774BAD22215C2C0001420C /* DetailGroupMessage.swift */; };
 		197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1A2171B6470023777C /* AvatarPickerVC.swift */; };
 		197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1D1C2171BEF80023777C /* AvatarCell.swift */; };
+		19955A2C21DCC766006BC383 /* GoogleLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19955A2B21DCC765006BC383 /* GoogleLoginVC.swift */; };
 		19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */; };
 		19EAC122219ABC4B003E0FFD /* AdminMenuUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */; };
 		19EAC126219AF06F003E0FFD /* AdminUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EAC125219AF06F003E0FFD /* AdminUserCell.swift */; };
@@ -44,10 +51,17 @@
 
 /* Begin PBXFileReference section */
 		0B9E38C08E35A3D9610F585D /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		192CCC12221558E400B9AD24 /* AdminDetailFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailFeedVC.swift; sourceTree = "<group>"; };
+		192CCC142215592500B9AD24 /* AdminDetailGroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailGroupFeedVC.swift; sourceTree = "<group>"; };
+		192CCC182216CED800B9AD24 /* DetailFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeedCell.swift; sourceTree = "<group>"; };
+		1931E024221028BE001FF5CC /* AdminDetailUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailUserVC.swift; sourceTree = "<group>"; };
 		1960F4EE218060FD00561900 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1960F4F1218078D700561900 /* CameraCaptureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureVC.swift; sourceTree = "<group>"; };
+		19774BAB221986DF0001420C /* DetailGroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupFeedCell.swift; sourceTree = "<group>"; };
+		19774BAD22215C2C0001420C /* DetailGroupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupMessage.swift; sourceTree = "<group>"; };
 		197F1D1A2171B6470023777C /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		197F1D1C2171BEF80023777C /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		19955A2B21DCC765006BC383 /* GoogleLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginVC.swift; sourceTree = "<group>"; };
 		19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupPostVC.swift; sourceTree = "<group>"; };
 		19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuUsersVC.swift; sourceTree = "<group>"; };
 		19EAC125219AF06F003E0FFD /* AdminUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserCell.swift; sourceTree = "<group>"; };
@@ -145,6 +159,7 @@
 				71B61A091F23CEAA00FA8925 /* GroupsVC.swift */,
 				71B61A221F26584800FA8925 /* AuthVC.swift */,
 				71B61A241F26587E00FA8925 /* LoginVC.swift */,
+				19955A2B21DCC765006BC383 /* GoogleLoginVC.swift */,
 				71B61A2C1F26701B00FA8925 /* MeVC.swift */,
 				71B61A2E1F2674AD00FA8925 /* CreatePostVC.swift */,
 				71B61A361F269A5000FA8925 /* CreateGroupsVC.swift */,
@@ -153,6 +168,9 @@
 				1960F4F1218078D700561900 /* CameraCaptureVC.swift */,
 				19EAC11F2194245A003E0FFD /* CreateGroupPostVC.swift */,
 				19EAC121219ABC4A003E0FFD /* AdminMenuUsersVC.swift */,
+				1931E024221028BE001FF5CC /* AdminDetailUserVC.swift */,
+				192CCC12221558E400B9AD24 /* AdminDetailFeedVC.swift */,
+				192CCC142215592500B9AD24 /* AdminDetailGroupFeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +186,8 @@
 				7198DB8A1F27D3BF0088BE5A /* GroupFeedCell.swift */,
 				197F1D1C2171BEF80023777C /* AvatarCell.swift */,
 				19EAC125219AF06F003E0FFD /* AdminUserCell.swift */,
+				192CCC182216CED800B9AD24 /* DetailFeedCell.swift */,
+				19774BAB221986DF0001420C /* DetailGroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 				71B61A341F26893000FA8925 /* Message.swift */,
 				7198DB881F27CCAD0088BE5A /* Group.swift */,
 				19EAC127219C0F53003E0FFD /* Users.swift */,
+				19774BAD22215C2C0001420C /* DetailGroupMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 				71B619FF1F23CEAA00FA8925 /* Frameworks */,
 				71B61A001F23CEAA00FA8925 /* Resources */,
 				6EEE33556297C3C4301D8BBF /* [CP] Embed Pods Frameworks */,
+				80BE9FBDBEE2D01634EAF86B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,7 +308,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -296,7 +320,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -307,6 +333,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80BE9FBDBEE2D01634EAF86B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FBC7FF4FEE7A37F2C0E70576 /* [CP] Check Pods Manifest.lock */ = {
@@ -342,12 +386,17 @@
 				197F1D1D2171BEF80023777C /* AvatarCell.swift in Sources */,
 				7198DB8F1F27ED5A0088BE5A /* UIViewControllerExt.swift in Sources */,
 				71B61A0A1F23CEAA00FA8925 /* GroupsVC.swift in Sources */,
+				19955A2C21DCC766006BC383 /* GoogleLoginVC.swift in Sources */,
+				192CCC13221558E400B9AD24 /* AdminDetailFeedVC.swift in Sources */,
 				7198DB8D1F27D4240088BE5A /* GroupFeedVC.swift in Sources */,
+				192CCC192216CED800B9AD24 /* DetailFeedCell.swift in Sources */,
 				7198DB8B1F27D3BF0088BE5A /* GroupFeedCell.swift in Sources */,
 				71B61A251F26587E00FA8925 /* LoginVC.swift in Sources */,
+				192CCC152215592500B9AD24 /* AdminDetailGroupFeedVC.swift in Sources */,
 				19EAC1202194245A003E0FFD /* CreateGroupPostVC.swift in Sources */,
 				71B61A2B1F265D5500FA8925 /* AuthService.swift in Sources */,
 				71B61A371F269A5000FA8925 /* CreateGroupsVC.swift in Sources */,
+				19774BAC221986DF0001420C /* DetailGroupFeedCell.swift in Sources */,
 				19EAC126219AF06F003E0FFD /* AdminUserCell.swift in Sources */,
 				7198DB891F27CCAD0088BE5A /* Group.swift in Sources */,
 				197F1D1B2171B6470023777C /* AvatarPickerVC.swift in Sources */,
@@ -355,12 +404,14 @@
 				71B61A061F23CEAA00FA8925 /* AppDelegate.swift in Sources */,
 				71B61A291F265BB500FA8925 /* ShadowView.swift in Sources */,
 				19EAC128219C0F53003E0FFD /* Users.swift in Sources */,
+				19774BAE22215C2C0001420C /* DetailGroupMessage.swift in Sources */,
 				71B61A2F1F2674AD00FA8925 /* CreatePostVC.swift in Sources */,
 				71B61A081F23CEAA00FA8925 /* FeedVC.swift in Sources */,
 				19EAC122219ABC4B003E0FFD /* AdminMenuUsersVC.swift in Sources */,
 				71B61A271F26591800FA8925 /* InsetTextField.swift in Sources */,
 				71B61A211F23DE8800FA8925 /* DataService.swift in Sources */,
 				1960F4F2218078D700561900 /* CameraCaptureVC.swift in Sources */,
+				1931E025221028BE001FF5CC /* AdminDetailUserVC.swift in Sources */,
 				71B61A351F26893000FA8925 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
