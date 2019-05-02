@@ -74,30 +74,11 @@ class AdminDetailUserVC: UIViewController {
         
         DataService.instance.getGroup(forUID: detailUID) { (snaparray) in // uid -> array return // 왜 3번이 돌고 2번이 돌까?
             detailUserGroupArray = snaparray.reversed()
-            print("갯수봅시다 \(self.groupsArray.count)") // 받아온 갯수
+         
             var detailGroupFeedCount = 0
-            print("가자아아아 \(detailUserGroupArray.count)") // 이게 왜 1이 되어있을까?
-            
-            
-            print("groupsArray 절취선")
-            
-            
-            
-            print("groupsArray 절취선")
-            // grouparray로 들어가는건 정확하게 들어감
-            // 그냥 카피로 가야하나?
-            print("****************")
-            print(detailUserGroupArray.count)
-            
-            
-            
+         
             // 중간과정을 한번 더 겪는 장치가 필요?
-            //self.present(AdminDetailGroupFeedVC!, animated: true, completion: nil)
-            
-            //             DataService.instance.getAllFeedMessages { (returnedMessagesArray) in
-            //                self.delayArray = returnedMessagesArray.reversed()
-            //                print("몇번 돌아가나 ")
-            //            }
+        
             
         }
     }
@@ -165,20 +146,7 @@ class AdminDetailUserVC: UIViewController {
 //            detailUserGroupArray = snaparray.reversed()
 //            print("갯수봅시다 \(self.groupsArray.count)") // 받아온 갯수
 //            var detailGroupFeedCount = 0
-//            print("가자아아아 \(detailUserGroupArray.count)") // 이게 왜 1이 되어있을까?
-//
-//
-//            print("groupsArray 절취선")
-//
-//
-//
-//            print("groupsArray 절취선")
-//            // grouparray로 들어가는건 정확하게 들어감
-//            // 그냥 카피로 가야하나?
-//            print("****************")
-//            print(detailUserGroupArray.count)
-//
-//
+
 //
 //            // 중간과정을 한번 더 겪는 장치가 필요?
 //            //self.present(AdminDetailGroupFeedVC!, animated: true, completion: nil)

@@ -47,10 +47,7 @@ class AdminDetailGroupFeedVC: UIViewController {
     }
     
     
-    @IBAction func testbtnwaspressed(_ sender: Any) {
-        tableView.reloadData()
-        print("리프레쉬")
-    }
+ 
     
     func getGroupUID() {
         
@@ -127,7 +124,6 @@ extension AdminDetailGroupFeedVC: UITableViewDelegate, UITableViewDataSource {
         var ref1 = ""
             
             // 여기서 groupkey를 받아야 함
-            
             // 키 안받고 넘겨야 함
             
             
@@ -196,7 +192,7 @@ extension AdminDetailGroupFeedVC: UITableViewDelegate, UITableViewDataSource {
                 
         })
         
-        print("굴러가는거 테스트")
+
 //            ref.queryOrdered(byChild: "content").queryEqual(toValue: detailUserGroupArray[indexPath.row].content).observeSingleEvent(of: .value, with: { (snapshot) in
 //                print(snapshot)
 //                print(detailUserGroupArray[indexPath.row].content)

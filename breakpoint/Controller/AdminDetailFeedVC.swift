@@ -69,7 +69,6 @@ extension AdminDetailFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // 리턴하는게 자기 가 쓴 feed의 갯수만 리턴 하는 거
-     
         // 갯수를 새는게 아니라 array를 따로 구성해야 할듯
         
         

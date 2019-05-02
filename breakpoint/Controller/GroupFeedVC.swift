@@ -154,8 +154,7 @@ extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    // 미완성
-    
+
 }
 
 

@@ -24,14 +24,12 @@ class AuthService { // 인증서비스
 //                userCreationComplete(false, error)
 //                return
 //            }
-//
-//
+
             
             
-            let userData = ["provider": user.providerID, "email": user.email, "profile": "images/\((Auth.auth().currentUser?.email)!)_capture.png"] as [String : Any] //           provide , email, imagefile
-            
-            
-            // 기본 url 설정을 해줘야 들어감 . photoUrl init이 필요할듯.
+            let userData = ["provider": user.providerID, "email": user.email, "profile": "images/\((Auth.auth().currentUser?.email)!)_capture.png"] as [String : Any]
+            // provide , email, imagefile
+            // 기본 url 설정을 해줘야 들어감 .
             
             
             

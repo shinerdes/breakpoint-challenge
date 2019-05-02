@@ -1583,30 +1583,15 @@
                                             <action selector="signOutBtnWasPressed:" destination="b9s-Ne-FYr" eventType="touchUpInside" id="TgB-NT-BwR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbg-k7-yiR">
-                                        <rect key="frame" x="325" y="30" width="30" height="30"/>
-                                        <color key="backgroundColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="IGi-BU-Bt6"/>
-                                            <constraint firstAttribute="height" constant="30" id="kuh-Uf-D5G"/>
-                                        </constraints>
-                                        <state key="normal" image="removeuser"/>
-                                        <connections>
-                                            <action selector="userRemoveBtnWasPressed:" destination="JVO-oq-ElC" eventType="touchUpInside" id="RIJ-xT-PhU"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="ITr-Nk-hiT" firstAttribute="top" secondItem="OsX-AP-8VZ" secondAttribute="top" constant="35" id="343-3W-IrY"/>
-                                    <constraint firstAttribute="trailing" secondItem="xbg-k7-yiR" secondAttribute="trailing" constant="20" id="Jsb-0r-6WM"/>
                                     <constraint firstAttribute="width" constant="375" id="PKP-zl-JPQ"/>
-                                    <constraint firstItem="xbg-k7-yiR" firstAttribute="top" secondItem="OsX-AP-8VZ" secondAttribute="top" constant="30" id="VBv-01-8WT"/>
                                     <constraint firstItem="ITr-Nk-hiT" firstAttribute="leading" secondItem="aD9-1f-Qgf" secondAttribute="trailing" constant="88" id="Vp8-2N-XBZ"/>
                                     <constraint firstItem="aD9-1f-Qgf" firstAttribute="top" secondItem="OsX-AP-8VZ" secondAttribute="top" constant="30" id="Z00-bc-GBt"/>
                                     <constraint firstAttribute="height" constant="70" id="Z0H-I1-Zk6"/>
                                     <constraint firstItem="aD9-1f-Qgf" firstAttribute="leading" secondItem="OsX-AP-8VZ" secondAttribute="leading" constant="20" id="auy-7b-b3G"/>
-                                    <constraint firstAttribute="bottom" secondItem="xbg-k7-yiR" secondAttribute="bottom" constant="10" id="dXC-s3-waC"/>
                                     <constraint firstItem="ITr-Nk-hiT" firstAttribute="centerY" secondItem="aD9-1f-Qgf" secondAttribute="centerY" id="iZ0-2r-dy2"/>
                                     <constraint firstItem="ITr-Nk-hiT" firstAttribute="centerX" secondItem="OsX-AP-8VZ" secondAttribute="centerX" id="tuS-IB-ud7"/>
                                 </constraints>
@@ -1900,14 +1885,6 @@
                                             <action selector="backBtnWasPressed:" destination="Wsf-DC-idJ" eventType="touchUpInside" id="dvr-mL-g9M"/>
                                             <action selector="closeBtnWasClosed:" destination="PPG-D8-PqO" eventType="touchUpInside" id="dS2-9H-wR8"/>
                                             <action selector="closeBtnWasPressed:" destination="0b9-Oe-Wls" eventType="touchUpInside" id="O1T-aC-jPS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-N1-fvb">
-                                        <rect key="frame" x="321" y="34" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="testbtnwaspressed:" destination="Wsf-DC-idJ" eventType="touchUpInside" id="a8L-bi-EKo"/>
                                         </connections>
                                     </button>
                                 </subviews>

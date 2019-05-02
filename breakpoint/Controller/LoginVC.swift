@@ -167,6 +167,3 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC: UITextFieldDelegate { }
-
-// 관리자 메뉴 신설
-

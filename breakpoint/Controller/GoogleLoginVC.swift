@@ -303,16 +303,7 @@ class GoogleLoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             
             
 
-            
-             //self.dismiss(animated: true, completion: nil)
-            
-            
-            
-              // 여기에 다 때려 박아야 함
-              // 3. 계정 삭제시 구글 연동 계정은 별도의 패스워드 요구 x
            
-            
-            
             // User is signed in
             // ...
         }
@@ -407,9 +398,6 @@ class GoogleLoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
 // logout + 현재 계정 연동이 되어있는 상태인가? 에 대한 show
 
-// 1. 구글 게정 연동에 대한 직관적인 UI
-// 2. 구글 계정 연동 이후 로그인시 auth에서 이메일이 아닌 구글 계정 으로 찍히게
-// 3. db에서는 어떻게 계정이 찍히는가?
 
 
 extension GoogleLoginVC: UITextFieldDelegate { }

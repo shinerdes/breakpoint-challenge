@@ -46,8 +46,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let uid = (Auth.auth().currentUser?.uid)!
-        //(Auth.auth().currentUser?.uid)
-        //UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
+
         // in realtime database
         
         

@@ -27,9 +27,3 @@ class DetailGroupFeedCell: UITableViewCell {
 }
 
 
-/*
- 
- @IBOutlet weak var detailProfileImage: UIImageView!
- @IBOutlet weak var detailEmailLbl: UILabel!
- @IBOutlet weak var detailContentLbl: UILabel!
- */
