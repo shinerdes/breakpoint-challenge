@@ -243,6 +243,7 @@ class GoogleLoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                     }
 
                 }
+                
                 print(user.email!)
                 print(redundancyCheck)
                 

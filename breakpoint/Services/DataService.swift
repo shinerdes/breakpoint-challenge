@@ -144,7 +144,7 @@ class DataService {
     func setAvatarProfile(forUID uid: String, avatarName: String){
         REF_USERS.child(uid).child("profile").setValue(avatarName)
     }
-    
+    // func getImage(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
     func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) { //
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -155,6 +155,8 @@ class DataService {
             }
         }
     }
+    
+    
     
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, profileImage image: String, sendComplete: @escaping (_ status: Bool) -> ()) {
         if groupKey != nil {
@@ -174,7 +176,7 @@ class DataService {
             for message in feedMessageSnapshot {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                let messageImage = message.childSnapshot(forPath: "profile").value as! String
+                let messageImage = message.childSnapshot(forPath: "profile").value as! String //???
                 let message = Message(content: content, senderId: senderId, messageImage: messageImage)
                 messageArray.append(message)
             }
